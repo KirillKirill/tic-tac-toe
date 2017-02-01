@@ -29,16 +29,15 @@ class TicTacToe {
                 || (this.mas[0][0] && this.mas[0][0] == this.mas[1][0] && this.mas[0][0] == this.mas[2][0])
                 || (this.mas[0][1] && this.mas[0][1] == this.mas[1][1] && this.mas[0][1] == this.mas[2][1])
                 || (this.mas[0][2] && this.mas[0][2] == this.mas[1][2] && this.mas[0][2] == this.mas[2][2])) {
-                this.winner = true;
-                this.winSymbol = this.symbol;
+                    this.winner = true;
+                    this.winSymbol = this.symbol;
             }
             this.getCurrentPlayerSymbol()
         }
     }
 
     isFinished() {
-        if (this.count == 9 || this.winner) return true;
-        else return false;
+        return this.count == 9 || this.winner ? true : false;
     }
 
     getWinner() {
@@ -46,13 +45,11 @@ class TicTacToe {
     }
 
     noMoreTurns() {
-        if (this.count == 9) return true;
-        else return false;
+        return this.count == 9;
     }
 
     isDraw() {
-        if (this.count == 9 && this.winner == false) return true;
-        else return false;
+        return !!(this.count == 9 && this.winner == false);
     }
 
     getFieldValue(rowIndex, colIndex) {
